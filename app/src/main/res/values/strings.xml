@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BillingApp:</string>
+    <string name="location">Location:</string>
+    <string name="roomType">Room Type:</string>
+    <string name="checkInDate">Check In Date:</string>
+    <string name="checkOutDate">Check Out Date:</string>
+    <string name="noOfRooms">Number of Rooms:</string>
+    <string name="serviceTax">Service Tax:</string>
+    <string name="vat">VAT:</string>
+    <string name="total">Total:</string>
+</resources>
