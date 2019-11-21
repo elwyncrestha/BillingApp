@@ -17,13 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.softwarica.billingapp.activity.BillActivity;
 import com.softwarica.billingapp.util.BookingInformation;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner spLocation, spRoomType;
-    private EditText etCountAdult, etCountChildren, etCountRoom;
+    private EditText etCountRoom;
     private TextView tvCheckInDateValue, tvCheckOutDateValue;
     private Button btnCalculate;
 
@@ -41,8 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.spRoomType = findViewById(R.id.spRoomType);
         this.tvCheckInDateValue = findViewById(R.id.tvCheckInDateValue);
         this.tvCheckOutDateValue = findViewById(R.id.tvCheckOutDateValue);
-        this.etCountAdult = findViewById(R.id.etCountAdult);
-        this.etCountChildren = findViewById(R.id.etCountChildren);
         this.etCountRoom = findViewById(R.id.etCountRoom);
         this.btnCalculate = findViewById(R.id.btnCalculate);
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayAdapter locationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, BookingInformation.locations);
         this.spLocation.setAdapter(locationAdapter);
 
-        ArrayAdapter roomAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, BookingInformation.room.keySet().stream().collect(Collectors.toList()));
+        ArrayAdapter roomAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(BookingInformation.room.keySet()));
         this.spRoomType.setAdapter(roomAdapter);
     }
 
@@ -85,12 +84,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 pickCheckOut.show();
                 break;
             case R.id.btnCalculate:
-                BookingInformation.location = spLocation.getSelectedItem().toString();
-                BookingInformation.roomType = spRoomType.getSelectedItem().toString();
-                BookingInformation.checkInDate = tvCheckInDateValue.getText().toString();
-                BookingInformation.checkOutDate = tvCheckOutDateValue.getText().toString();
-                BookingInformation.noOfRooms= etCountRoom.getText().toString();
                 Intent intent = new Intent(MainActivity.this, BillActivity.class);
+                intent.putExtra(BookingInformation.LOCATION, spLocation.getSelectedItem().toString());
+                intent.putExtra(BookingInformation.ROOM_TYPE, spRoomType.getSelectedItem().toString());
+                intent.putExtra(BookingInformation.CHECK_IN_DATE, tvCheckInDateValue.getText().toString());
+                intent.putExtra(BookingInformation.CHECK_OUT_DATE, tvCheckOutDateValue.getText().toString());
+                intent.putExtra(BookingInformation.NO_OF_ROOMS, etCountRoom.getText().toString());
                 startActivity(intent);
                 break;
         }

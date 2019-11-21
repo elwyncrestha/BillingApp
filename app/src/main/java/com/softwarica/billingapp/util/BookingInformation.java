@@ -8,6 +8,12 @@ import java.util.Map;
  */
 public class BookingInformation {
 
+    public static final String LOCATION = "location";
+    public static final String ROOM_TYPE = "roomType";
+    public static final String CHECK_IN_DATE = "checkInDate";
+    public static final String CHECK_OUT_DATE = "checkOutDate";
+    public static final String NO_OF_ROOMS = "noOfRooms";
+
     public static Map<String, Float> room = new HashMap<String, Float>() {
         {
             put("Deluxe", 2000.0f);
@@ -21,12 +27,5 @@ public class BookingInformation {
             "Bhaktapur",
             "Chitwan"
     };
-
-    // dumps
-    public static String location;
-    public static String roomType;
-    public static String checkInDate;
-    public static String checkOutDate;
-    public static String noOfRooms;
 
 }
