@@ -10,7 +10,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +18,6 @@ import com.softwarica.billingapp.util.BookingInformation;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.stream.Collectors;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -51,10 +49,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void fillValues() {
-        ArrayAdapter locationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, BookingInformation.locations);
+        ArrayAdapter locationAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, BookingInformation.LOCATION_MAP);
         this.spLocation.setAdapter(locationAdapter);
 
-        ArrayAdapter roomAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(BookingInformation.room.keySet()));
+        ArrayAdapter roomAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, new ArrayList<>(BookingInformation.ROOM_MAP.keySet()));
         this.spRoomType.setAdapter(roomAdapter);
     }
 

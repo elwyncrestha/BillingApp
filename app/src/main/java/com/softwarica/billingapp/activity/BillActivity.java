@@ -28,7 +28,7 @@ public class BillActivity extends AppCompatActivity {
 
         float total = 0f;
         int countRoom = Integer.parseInt(bundle.getString(BookingInformation.NO_OF_ROOMS));
-        float roomCharge = countRoom * BookingInformation.room.get(bundle.getString(BookingInformation.ROOM_TYPE));
+        float roomCharge = countRoom * BookingInformation.ROOM_MAP.get(bundle.getString(BookingInformation.ROOM_TYPE));
         total += roomCharge;
         float serviceCharge = (10 / 100f) * total;
         total += serviceCharge;

@@ -14,7 +14,7 @@ public class BookingInformation {
     public static final String CHECK_OUT_DATE = "checkOutDate";
     public static final String NO_OF_ROOMS = "noOfRooms";
 
-    public static Map<String, Float> room = new HashMap<String, Float>() {
+    public static Map<String, Float> ROOM_MAP = new HashMap<String, Float>() {
         {
             put("Deluxe", 2000.0f);
             put("AC", 3000.0f);
@@ -22,7 +22,7 @@ public class BookingInformation {
         }
     };
 
-    public static String[] locations = new String[] {
+    public static String[] LOCATION_MAP = new String[] {
             "Kathmandu",
             "Bhaktapur",
             "Chitwan"
