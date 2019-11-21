@@ -49,6 +49,13 @@
         style="@style/TextViewStyles" />
 
     <TextView
+        android:id="@+id/tvRoomCharge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/roomCharge"
+        style="@style/TextViewStyles" />
+
+    <TextView
         android:id="@+id/tvServiceCharge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
